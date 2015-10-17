@@ -4,11 +4,12 @@
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<class>cn.lynx.automan.db.entity.Model</class>
 		<class>cn.lynx.automan.db.entity.User</class>
+		<class>cn.lynx.automan.db.entity.UserState</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/automan" />
             <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="aut0man" />
+            <property name="javax.persistence.jdbc.password" value="passw0rd" />
             <property name="openjpa.jdbc.DBDictionary" value="mysql" />
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
         </properties> 
