@@ -8,19 +8,24 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import cn.lynx.automan.db.DataMgr;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import cn.lynx.automan.db.entity.User;
 import cn.lynx.automan.db.entity.UserState;
+import cn.lynx.automan.db.repo.UserRepository;
 import cn.lynx.automan.resources.model.UserRes;
 import cn.lynx.automan.resources.model.UserStateRes;
 
 @Path("/users")
 public class UserResources {
 	
+	@Autowired
+	private UserRepository repo;
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<UserRes> getUsers() {
-		List<User> users = DataMgr.getInstance().findAll(User.class);
+		List<User> users = repo.findAll();
 		List<UserRes> result = new ArrayList<>();
 		
 		for (User u : users) {
