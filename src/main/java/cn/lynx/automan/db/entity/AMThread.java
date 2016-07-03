@@ -1,6 +1,5 @@
 package cn.lynx.automan.db.entity;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -11,36 +10,36 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AM_Thread")
+@Table(name = "`AM_Thread`")
 public class AMThread extends Model {
 	@OneToOne
-	@JoinColumn(name = "Subject Id")
+	@JoinColumn(name = "`Subject Id`")
 	private Subject subject;
 	
 	@Lob
-	@Column(name = "Content")
+	@Column(name = "`Content`")
 	private String content;
 	
-	@Column(name = "Publish Date")
+	@Column(name = "`Publish Date`")
 	private Timestamp publishDate;
 	
 	@OneToOne
-	@JoinColumn(name = "Author Id")
+	@JoinColumn(name = "`Author Id`")
 	private User user;
 	
-	@Column(name = "Author Hidden")
+	@Column(name = "`Author Hidden`")
 	private boolean authorHidden;
 	
-	@Column(name = "Publish IP")
+	@Column(name = "`Publish IP`")
 	private String publishIP;
 	
-	@Column(name = "Editted")
+	@Column(name = "`Editted`")
 	private boolean editted;
 	
-	@Column(name = "Edit Time")
-	private Date editTime;
+	@Column(name = "`Edit Time`")
+	private Timestamp editTime;
 	
-	@Column(name = "Status")
+	@Column(name = "`Status`")
 	private int status;
 
 	public Subject getSubject() {
@@ -99,11 +98,11 @@ public class AMThread extends Model {
 		this.editted = editted;
 	}
 
-	public Date getEditTime() {
+	public Timestamp getEditTime() {
 		return editTime;
 	}
 
-	public void setEditTime(Date editTime) {
+	public void setEditTime(Timestamp editTime) {
 		this.editTime = editTime;
 	}
 

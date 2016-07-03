@@ -12,39 +12,39 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AM_User")
+@Table(name = "`AM_User`")
 public class User extends Model {
 	
-	@Column(name = "Username")
+	@Column(name = "`Username`")
 	private String username;
 	
-	@Column(name = "Password")
+	@Column(name = "`Password`")
 	private String password;
 	
-	@Column(name = "Real Name")
+	@Column(name = "`Real Name`")
 	private String realName;
 	
-	@Column(name = "Gender")
+	@Column(name = "`Gender`")
 	private int gender;
 	
-	@Column(name = "Birthday")
+	@Column(name = "`Birthday`")
 	private Date birthday;
 	
-	@Column(name = "Email")
+	@Column(name = "`Email`")
 	private String email;
 	
-	@Column(name = "Mobile")
+	@Column(name = "`Mobile`")
 	private String mobile;
 	
-	@Column(name = "Grade")
+	@Column(name = "`Grade`")
 	private String grade;
 	
-	@Column(name = "Signature")
+	@Column(name = "`Signature`")
 	@Lob
 	private String signature;
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "User State Id")
+	@JoinColumn(name = "`User State Id`")
 	private UserState userState;
 
 	public String getUsername() {

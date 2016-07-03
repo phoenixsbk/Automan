@@ -7,19 +7,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AM_Attach")
+@Table(name = "`AM_Attach`")
 public class Attach extends Model {
-	@JoinColumn(name = "Thread Id")
+	@JoinColumn(name = "`Thread Id`")
 	@OneToOne
 	private AMThread thread;
 	
-	@Column(name = "Title")
+	@Column(name = "`Title`")
 	private String title;
 	
-	@Column(name = "Type")
+	@Column(name = "`Type`")
 	private String type;
 	
-	@Column(name = "Link")
+	@Column(name = "`Link`")
 	private String link;
 
 	public AMThread getThread() {

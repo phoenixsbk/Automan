@@ -10,21 +10,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "AM_Subject")
+@Table(name = "`AM_Subject`")
 public class Subject extends Model {
-	@Column(name = "Title")
+	@Column(name = "`Title`")
 	private String title;
 	
-	@Column(name = "Publish Date")
+	@Column(name = "`Publish Date`")
 	private Timestamp publishDate;
 	
-	@Column(name = "Update Date")
+	@Column(name = "`Update Date`")
 	private Timestamp updateDate;
 	
-	@Column(name = "Read Time")
+	@Column(name = "`Read Time`")
 	private int readTime;
 	
-	@Column(name = "On Top")
+	@Column(name = "`On Top`")
 	private boolean onTop;
 	
 	@OneToMany(cascade = CascadeType.REMOVE)
