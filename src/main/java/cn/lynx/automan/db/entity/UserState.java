@@ -7,18 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "`AM_User_State`")
+@Table(name = "`AMUserState`")
 public class UserState extends Model {
-	@Column(name = "`Login Times`")
+	@Column(name = "`LoginTimes`")
 	private int loginTimes;
 	
-	@Column(name = "`Publish Times`")
+	@Column(name = "`PublishTimes`")
 	private int publishTimes;
 	
-	@Column(name = "`Last Login Time`")
+	@Column(name = "`LastLoginTime`")
 	private Timestamp lastLoginTime;
 	
-	@Column(name = "`Last IP`")
+	@Column(name = "`LastIP`")
 	private String lastIp;
 	
 	@Column(name = "`Status`")
@@ -27,7 +27,7 @@ public class UserState extends Model {
 	@Column(name = "`Role`")
 	private int role;
 
-	@Column(name = "`Exp Level`")
+	@Column(name = "`Level`")
 	private int expLevel;
 
 	@Column(name = "`Currency`")

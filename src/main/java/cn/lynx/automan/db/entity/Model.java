@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class Model {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "`id`")
+	@Column(name = "`Id`")
 	protected int id;
 	
 	public int getId() {

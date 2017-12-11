@@ -6,8 +6,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "`AM_Attach`")
+/*@Entity
+@Table(name = "`AM_Attach`")*/
 public class Attach extends Model {
 	@JoinColumn(name = "`Thread Id`")
 	@OneToOne

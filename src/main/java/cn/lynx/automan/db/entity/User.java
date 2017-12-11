@@ -1,129 +1,121 @@
 package cn.lynx.automan.db.entity;
 
+import javax.persistence.*;
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 @Entity
-@Table(name = "`AM_User`")
+@Table(name = "`AMUser`")
 public class User extends Model {
-	
-	@Column(name = "`Username`")
-	private String username;
-	
-	@Column(name = "`Password`")
-	private String password;
-	
-	@Column(name = "`Real Name`")
-	private String realName;
-	
-	@Column(name = "`Gender`")
-	private int gender;
-	
-	@Column(name = "`Birthday`")
-	private Date birthday;
-	
-	@Column(name = "`Email`")
-	private String email;
-	
-	@Column(name = "`Mobile`")
-	private String mobile;
-	
-	@Column(name = "`Grade`")
-	private String grade;
-	
-	@Column(name = "`Signature`")
-	@Lob
-	private String signature;
-	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "`User State Id`")
-	private UserState userState;
 
-	public String getUsername() {
-		return username;
-	}
+    @Column(name = "`Username`")
+    private String username;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    @Column(name = "`Password`")
+    private String password;
 
-	public String getPassword() {
-		return password;
-	}
+    @Column(name = "`RealName`")
+    private String realName;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Column(name = "`Gender`")
+    private int gender;
 
-	public String getRealName() {
-		return realName;
-	}
+    @Column(name = "`Birthday`")
+    private Date birthday;
 
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
+    @Column(name = "`Email`")
+    private String email;
 
-	public int getGender() {
-		return gender;
-	}
+    @Column(name = "`Mobile`")
+    private String mobile;
 
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
+    @Column(name = "`Grade`")
+    private String grade;
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    @Column(name = "`Signature`")
+    @Lob
+    private String signature;
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    @ManyToOne
+    @JoinColumn(name = "`UserStateId`", referencedColumnName = "`Id`")
+    private UserState userState;
 
-	public String getEmail() {
-		return email;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getMobile() {
-		return mobile;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getGrade() {
-		return grade;
-	}
+    public String getRealName() {
+        return realName;
+    }
 
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 
-	public String getSignature() {
-		return signature;
-	}
+    public int getGender() {
+        return gender;
+    }
 
-	public void setSignature(String signature) {
-		this.signature = signature;
-	}
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
 
-	public UserState getUserState() {
-		return userState;
-	}
+    public Date getBirthday() {
+        return birthday;
+    }
 
-	public void setUserState(UserState userState) {
-		this.userState = userState;
-	}
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public UserState getUserState() {
+        return userState;
+    }
+
+    public void setUserState(UserState userState) {
+        this.userState = userState;
+    }
 }

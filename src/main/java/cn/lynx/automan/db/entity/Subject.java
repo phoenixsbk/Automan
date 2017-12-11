@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "`AM_Subject`")
+/*@Entity
+@Table(name = "`AM_Subject`")*/
 public class Subject extends Model {
 	@Column(name = "`Title`")
 	private String title;

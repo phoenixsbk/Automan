@@ -2,39 +2,9 @@ DROP TABLE IF EXISTS `AM_Attach`;
 DROP TABLE IF EXISTS `AM_Subject_Threads`;
 DROP TABLE IF EXISTS `AM_Thread`;
 DROP TABLE IF EXISTS `AM_Subject`;
-DROP TABLE IF EXISTS `AM_User`;
-DROP TABLE IF EXISTS `AM_User_State`;
-
-CREATE TABLE `AM_User_State` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Currency` int(11) DEFAULT NULL,
-  `Exp Level` int(11) DEFAULT NULL,
-  `Last IP` varchar(255) DEFAULT NULL,
-  `Last Login Time` datetime DEFAULT NULL,
-  `Login Times` int(11) DEFAULT NULL,
-  `Publish Times` int(11) DEFAULT NULL,
-  `Role` int(11) DEFAULT NULL,
-  `Status` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `AM_User` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `Birthday` date DEFAULT NULL,
-  `Email` varchar(255) DEFAULT NULL,
-  `Gender` int(11) DEFAULT NULL,
-  `Grade` varchar(255) DEFAULT NULL,
-  `Mobile` varchar(255) DEFAULT NULL,
-  `Password` varchar(255) DEFAULT NULL,
-  `Real Name` varchar(255) DEFAULT NULL,
-  `Signature` longtext,
-  `Username` varchar(255) DEFAULT NULL,
-  `User State id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_userstate_id` (`User State Id`),
-  CONSTRAINT `fk_userstate_id_to_userstate` FOREIGN KEY (`User State Id`) REFERENCES `AM_User_State` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 CREATE TABLE `AM_Subject` (

@@ -9,8 +9,8 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "`AM_Thread`")
+/*@Entity
+@Table(name = "`AM_Thread`")*/
 public class AMThread extends Model {
 	@OneToOne
 	@JoinColumn(name = "`Subject Id`")
