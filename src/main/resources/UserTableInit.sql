@@ -28,6 +28,5 @@ CREATE TABLE `AMUser` (
   `Username` varchar(255) DEFAULT NULL,
   `UserStateId` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
-  KEY `fk_userstate_id` (`UserStateId`),
   CONSTRAINT `fk_userstate_id_to_userstate` FOREIGN KEY (`UserStateId`) REFERENCES `AMUserState` (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

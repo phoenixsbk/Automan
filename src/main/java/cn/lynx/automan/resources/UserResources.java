@@ -10,9 +10,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cn.lynx.automan.db.entity.User;
-import cn.lynx.automan.db.entity.UserState;
-import cn.lynx.automan.db.repo.UserRepository;
+import cn.lynx.automan.data.entity.User;
+import cn.lynx.automan.data.entity.UserState;
+import cn.lynx.automan.data.repo.UserRepository;
 import cn.lynx.automan.resources.model.UserRes;
 import cn.lynx.automan.resources.model.UserStateRes;
 
@@ -22,7 +22,7 @@ public class UserResources {
 	@Autowired
 	private UserRepository repo;
 	
-	@GET
+	/*@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<UserRes> getUsers() {
 		List<User> users = repo.findAll();
@@ -57,5 +57,5 @@ public class UserResources {
 		}
 		
 		return result;
-	}
+	}*/
 }

@@ -1,6 +1,6 @@
-package cn.lynx.automan.db;
+package cn.lynx.automan.data;
 
-import cn.lynx.automan.db.entity.Model;
+import cn.lynx.automan.data.entity.Model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
