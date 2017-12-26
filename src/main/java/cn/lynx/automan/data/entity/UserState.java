@@ -1,111 +1,113 @@
 package cn.lynx.automan.data.entity;
 
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "`AMUserState`")
 public class UserState extends Model {
-	@OneToOne(mappedBy = "userState")
-	private User user;
+  @JsonIgnore
+  @OneToOne(mappedBy = "userState")
+  private User user;
 
-	@Column(name = "`LoginTimes`")
-	private int loginTimes;
-	
-	@Column(name = "`PublishTimes`")
-	private int publishTimes;
-	
-	@Column(name = "`LastLoginTime`")
-	private Timestamp lastLoginTime;
-	
-	@Column(name = "`LastIP`")
-	private String lastIp;
-	
-	@Column(name = "`Status`")
-	private int status;
+  @Column(name = "`LoginTimes`")
+  private int loginTimes;
 
-	@Column(name = "`Role`")
-	private int role;
+  @Column(name = "`PublishTimes`")
+  private int publishTimes;
 
-	@Column(name = "`Level`")
-	private int expLevel;
+  @Column(name = "`LastLoginTime`")
+  private Timestamp lastLoginTime;
 
-	@Column(name = "`Currency`")
-	private int currency;
+  @Column(name = "`LastIP`")
+  private String lastIp;
 
-	public User getUser() {
-		return user;
-	}
+  @Column(name = "`Status`")
+  private int status;
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+  @Column(name = "`Role`")
+  private int role;
 
-	public int getLoginTimes() {
-		return loginTimes;
-	}
+  @Column(name = "`Level`")
+  private int expLevel;
 
-	public void setLoginTimes(int loginTimes) {
-		this.loginTimes = loginTimes;
-	}
+  @Column(name = "`Currency`")
+  private int currency;
 
-	public int getPublishTimes() {
-		return publishTimes;
-	}
+  public User getUser() {
+    return user;
+  }
 
-	public void setPublishTimes(int publishTimes) {
-		this.publishTimes = publishTimes;
-	}
+  public void setUser(User user) {
+    this.user = user;
+  }
 
-	public Timestamp getLastLoginTime() {
-		return lastLoginTime;
-	}
+  public int getLoginTimes() {
+    return loginTimes;
+  }
 
-	public void setLastLoginTime(Timestamp lastLoginTime) {
-		this.lastLoginTime = lastLoginTime;
-	}
+  public void setLoginTimes(int loginTimes) {
+    this.loginTimes = loginTimes;
+  }
 
-	public String getLastIp() {
-		return lastIp;
-	}
+  public int getPublishTimes() {
+    return publishTimes;
+  }
 
-	public void setLastIp(String lastIp) {
-		this.lastIp = lastIp;
-	}
+  public void setPublishTimes(int publishTimes) {
+    this.publishTimes = publishTimes;
+  }
 
-	public int getStatus() {
-		return status;
-	}
+  public Timestamp getLastLoginTime() {
+    return lastLoginTime;
+  }
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+  public void setLastLoginTime(Timestamp lastLoginTime) {
+    this.lastLoginTime = lastLoginTime;
+  }
 
-	public int getRole() {
-		return role;
-	}
+  public String getLastIp() {
+    return lastIp;
+  }
 
-	public void setRole(int role) {
-		this.role = role;
-	}
+  public void setLastIp(String lastIp) {
+    this.lastIp = lastIp;
+  }
 
-	public int getExpLevel() {
-		return expLevel;
-	}
+  public int getStatus() {
+    return status;
+  }
 
-	public void setExpLevel(int expLevel) {
-		this.expLevel = expLevel;
-	}
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
-	public int getCurrency() {
-		return currency;
-	}
+  public int getRole() {
+    return role;
+  }
 
-	public void setCurrency(int currency) {
-		this.currency = currency;
-	}
+  public void setRole(int role) {
+    this.role = role;
+  }
+
+  public int getExpLevel() {
+    return expLevel;
+  }
+
+  public void setExpLevel(int expLevel) {
+    this.expLevel = expLevel;
+  }
+
+  public int getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(int currency) {
+    this.currency = currency;
+  }
 }

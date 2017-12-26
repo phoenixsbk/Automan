@@ -3,9 +3,10 @@ package cn.lynx.automan.data.entity;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "`AThread`")
+@Table(name = "`AMThread`")
 public class AThread extends Model {
     @ManyToOne
     @JoinColumn(name = "`SubjectId`")
@@ -28,8 +29,8 @@ public class AThread extends Model {
     @Column(name = "`EditDate`")
     private Timestamp editDate;
 
-    @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ThreadStatus> threadStatuses;
+    @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL)
+    private Set<ThreadStatus> threadStatuses;
 
     public Subject getSubject() {
         return subject;
@@ -79,11 +80,11 @@ public class AThread extends Model {
         this.editDate = editDate;
     }
 
-    public List<ThreadStatus> getThreadStatuses() {
+    public Set<ThreadStatus> getThreadStatuses() {
         return threadStatuses;
     }
 
-    public void setThreadStatuses(List<ThreadStatus> threadStatuses) {
+    public void setThreadStatuses(Set<ThreadStatus> threadStatuses) {
         this.threadStatuses = threadStatuses;
     }
 }

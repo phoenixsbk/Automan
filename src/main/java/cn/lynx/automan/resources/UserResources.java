@@ -1,26 +1,41 @@
 package cn.lynx.automan.resources;
 
-import java.util.ArrayList;
-import java.util.List;
+import cn.lynx.automan.data.entity.SessionToken;
+import cn.lynx.automan.data.entity.User;
+import cn.lynx.automan.data.repo.UserRepository;
+import cn.lynx.automan.service.TokenService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import cn.lynx.automan.data.entity.User;
-import cn.lynx.automan.data.entity.UserState;
-import cn.lynx.automan.data.repo.UserRepository;
-import cn.lynx.automan.resources.model.UserRes;
-import cn.lynx.automan.resources.model.UserStateRes;
-
-@Path("/users")
+@Path("/user")
 public class UserResources {
-	
-	@Autowired
-	private UserRepository repo;
+
+  @Autowired
+  private HttpHeaders headers;
+
+  @Autowired
+  private UserRepository repo;
+
+  @Autowired
+  private TokenService tokenService;
+
+  @Path("/{username}")
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getUser(@PathParam("username") String username) {
+    SessionToken token = tokenService.getToken(username);
+    if (token == null) {
+      return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+  }
 	
 	/*@GET
 	@Produces(MediaType.APPLICATION_JSON)

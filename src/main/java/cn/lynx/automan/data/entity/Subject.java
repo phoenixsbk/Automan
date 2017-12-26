@@ -3,6 +3,7 @@ package cn.lynx.automan.data.entity;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "`AMSubject`")
@@ -10,7 +11,7 @@ public class Subject extends Model {
     @Column(name = "`Title`")
     private String title;
 
-    @Column(name = "`Publish Date`")
+    @Column(name = "`PublishDate`")
     private Timestamp publishDate;
 
     @Column(name = "`UpdateDate`")
@@ -19,14 +20,14 @@ public class Subject extends Model {
     @Column(name = "`Views`")
     private int views;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<SubjectStatus> statuses;
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+    private Set<SubjectStatus> statuses;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
     private List<AThread> threads;
 
-    @OneToMany(mappedBy = "subject", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Vote> votes;
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+    private Set<Vote> votes;
 
     public String getTitle() {
         return title;
@@ -52,11 +53,11 @@ public class Subject extends Model {
         this.updateDate = updateDate;
     }
 
-    public List<SubjectStatus> getStatuses() {
+    public Set<SubjectStatus> getStatuses() {
         return statuses;
     }
 
-    public void setStatuses(List<SubjectStatus> statuses) {
+    public void setStatuses(Set<SubjectStatus> statuses) {
         this.statuses = statuses;
     }
 

@@ -11,7 +11,6 @@ import javax.persistence.criteria.*;
 import java.util.List;
 import java.util.Map;
 
-@Component
 public class DataService {
     private static final String PERSISTENT_UNIT = "automanDB";
     private EntityManagerFactory emf;

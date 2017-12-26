@@ -10,6 +10,8 @@ public class AuthConfig {
 
     private long expire;
 
+    private String cookieKey;
+
     public String getKey() {
         return key;
     }
@@ -24,5 +26,13 @@ public class AuthConfig {
 
     public void setExpire(long expire) {
         this.expire = expire;
+    }
+
+    public String getCookieKey() {
+        return cookieKey;
+    }
+
+    public void setCookieKey(String cookieKey) {
+        this.cookieKey = cookieKey;
     }
 }

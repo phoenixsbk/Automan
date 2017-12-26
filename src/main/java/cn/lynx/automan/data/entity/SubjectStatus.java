@@ -3,7 +3,7 @@ package cn.lynx.automan.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "`AMSubjectStatus")
+@Table(name = "`AMSubjectStatus`")
 public class SubjectStatus extends Model {
     @ManyToOne
     @JoinColumn(name = "`SubjectId`")

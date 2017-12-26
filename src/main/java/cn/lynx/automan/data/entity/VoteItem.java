@@ -1,7 +1,7 @@
 package cn.lynx.automan.data.entity;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "`AMVoteItem`")
@@ -13,8 +13,8 @@ public class VoteItem extends Model {
     @Column(name = "`Content`")
     private String content;
 
-    @OneToMany(mappedBy = "vote", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<VoteRecord> voteRecords;
+    @OneToMany(mappedBy = "voteItem", cascade = CascadeType.ALL)
+    private Set<VoteRecord> voteRecords;
 
     public Vote getVote() {
         return vote;
@@ -30,5 +30,13 @@ public class VoteItem extends Model {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Set<VoteRecord> getVoteRecords() {
+        return voteRecords;
+    }
+
+    public void setVoteRecords(Set<VoteRecord> voteRecords) {
+        this.voteRecords = voteRecords;
     }
 }

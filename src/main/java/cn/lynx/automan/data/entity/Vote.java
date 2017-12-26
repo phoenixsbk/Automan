@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "`AMVote`")
 public class Vote extends Model {
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "`SubjectId`")
     private Subject subject;
 
@@ -17,7 +17,7 @@ public class Vote extends Model {
     @Column(name = "`MaxVoteItem`")
     private int maxVoteItem;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vote")
     private List<VoteItem> voteItems;
 
     public Subject getSubject() {
