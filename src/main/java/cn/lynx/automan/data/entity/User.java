@@ -113,4 +113,12 @@ public class User extends Model {
   public void setSignature(String signature) {
     this.signature = signature;
   }
+
+  public UserState getUserState() {
+    return userState;
+  }
+
+  public void setUserState(UserState userState) {
+    this.userState = userState;
+  }
 }

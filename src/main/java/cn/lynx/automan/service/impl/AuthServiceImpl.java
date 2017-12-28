@@ -51,7 +51,8 @@ public class AuthServiceImpl implements AuthService {
     if (user == null) {
       return null;
     } else {
-      return createToken(username, Instant.now());
+      sessionTokenRepository.deleteByUsername(username);
+      return sessionTokenRepository.save(createToken(username, Instant.now()));
     }
   }
 

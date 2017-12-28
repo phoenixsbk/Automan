@@ -1,5 +1,9 @@
 package cn.lynx.automan.resources;
 
+import cn.lynx.automan.data.entity.User;
+import cn.lynx.automan.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -14,15 +18,19 @@ public class UserResources {
   @Context
   private ContainerRequestContext requestContext;
 
+  @Autowired
+  private UserService userService;
+
   @Path("/{username}")
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getUser(@PathParam("username") String username) {
-    /*SessionToken token = tokenService.getToken(username);
-    if (token == null) {
+    User user = userService.findUser(username);
+    if (user != null) {
+      return Response.ok(user).build();
+    } else {
       return Response.status(Response.Status.NOT_FOUND).build();
-    }*/
-    return null;
+    }
   }
 	
 	/*@GET

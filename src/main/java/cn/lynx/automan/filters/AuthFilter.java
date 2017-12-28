@@ -35,14 +35,16 @@ public class AuthFilter implements ContainerRequestFilter {
       SessionToken token = authService.findToken(authCookie.getValue());
       if (token != null) {
         if (authService.isTokenValid(token)) {
+          System.out.println("Token Valid");
           requestContext.setProperty(CONTEXT_SESSIONTOKEN, token);
           return;
         } else {
+          System.out.println("Token invalid:" + token);
           authService.logout(token);
         }
       }
     }
 
-    requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).cookie(new NewCookie(authConfig.getCookieKey(), null)).build());
+    requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
   }
 }
