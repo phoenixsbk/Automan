@@ -6,6 +6,7 @@ import cn.lynx.automan.data.entity.SubjectStatuses;
 import cn.lynx.automan.data.repo.SubjectRepository;
 import cn.lynx.automan.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -20,25 +21,12 @@ public class SubjectServiceImpl implements SubjectService {
   private SubjectRepository subjectRepository;
 
   @Override
-  public List<Subject> listSubjects(SubjectStatuses statuses) {
-    List<Subject> subjectList = subjectRepository.listSubjectWithStatus();
-    List<Subject> statusFilteredList = subjectList.stream().filter(s -> {
-      boolean result = true;
-      for (SubjectStatuses status : statuses) {
-        result = result && s.getStatuses().stream().anyMatch(ss -> ss.getStatus().startsWith(status.toString()));
-      }
-      return result;
-    }).collect(Collectors.toList());
+  public List<Subject> listSubjects(SubjectStatuses status) {
+    return subjectRepository.listSubjectWithStatus(status.toString());
+  }
 
-    statusFilteredList.stream().sorted((x,y) -> {
-      Optional<Set<SubjectStatus>> xOp = Optional.ofNullable(x.getStatuses()).filter(xx -> xx.stream().anyMatch(xs -> xs.getStatus().startsWith(SubjectStatuses.TOP.toString())));
-      boolean xMatch = x.getStatuses().stream().anyMatch(ss -> ss.getStatus().startsWith(SubjectStatuses.TOP.toString()));
-      boolean yMatch = y.getStatuses().stream().anyMatch(yy -> yy.getStatus().startsWith(SubjectStatuses.TOP.toString()));
-      if () {
-        return 1;
-      } else {
-        return x.getUpdateDate().compareTo(y.getUpdateDate());
-      }
-    });
+  @Override
+  public List<Subject> listSubjects(SubjectStatuses status, int pageIndex, int pageSize) {
+    return subjectRepository.listSubjectWithStatus(status.toString(), new PageRequest(pageIndex, pageSize));
   }
 }

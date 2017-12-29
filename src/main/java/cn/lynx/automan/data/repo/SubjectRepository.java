@@ -11,6 +11,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface SubjectRepository extends JpaRepository<Subject, Integer> {
-  @Query("select s from Subject s where :status member s.statuses order by u.updateDate desc")
-  List<Subject> listSubjectWithStatus(@Param("status") SubjectStatus status, Pageable pageable);
+  @Query("select s from Subject s join s.statuses st where st.status = :statusName order by s.updateDate desc")
+  List<Subject> listSubjectWithStatus(@Param("statusName") String statusName, Pageable pageable);
+
+  @Query("select s from Subject s join s.statuses st where st.status = :statusName order by s.updateDate desc")
+  List<Subject> listSubjectWithStatus(@Param("statusName") String statusName);
 }
