@@ -9,5 +9,5 @@ import java.util.List;
 public interface SubjectService {
   List<Subject> listSubjects(SubjectStatuses status);
 
-  List<Subject> listSubjects(SubjectStatuses status, int pageIndex, int pageSize);
+  List<Subject> listSubjects(int pageIndex, int pageSize);
 }

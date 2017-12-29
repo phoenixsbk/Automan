@@ -1,5 +1,7 @@
 package cn.lynx.automan.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
@@ -8,72 +10,75 @@ import java.util.Set;
 @Entity
 @Table(name = "`AMSubject`")
 public class Subject extends Model {
-    @Column(name = "`Title`")
-    private String title;
+  @Column(name = "`Title`")
+  private String title;
 
-    @Column(name = "`PublishDate`")
-    private Timestamp publishDate;
+  @Column(name = "`PublishDate`")
+  private Timestamp publishDate;
 
-    @Column(name = "`UpdateDate`")
-    private Timestamp updateDate;
+  @Column(name = "`UpdateDate`")
+  private Timestamp updateDate;
 
-    @Column(name = "`Views`")
-    private int views;
+  @Column(name = "`Views`")
+  private int views;
 
-    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
-    private Set<SubjectStatus> statuses;
+  @JsonIgnore
+  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+  private Set<SubjectStatus> statuses;
 
-    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
-    private List<AThread> threads;
+  @JsonIgnore
+  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+  private List<AThread> threads;
 
-    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
-    private Set<Vote> votes;
+  @JsonIgnore
+  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+  private Set<Vote> votes;
 
-    public String getTitle() {
-        return title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public Timestamp getPublishDate() {
-        return publishDate;
-    }
+  public Timestamp getPublishDate() {
+    return publishDate;
+  }
 
-    public void setPublishDate(Timestamp publishDate) {
-        this.publishDate = publishDate;
-    }
+  public void setPublishDate(Timestamp publishDate) {
+    this.publishDate = publishDate;
+  }
 
-    public Timestamp getUpdateDate() {
-        return updateDate;
-    }
+  public Timestamp getUpdateDate() {
+    return updateDate;
+  }
 
-    public void setUpdateDate(Timestamp updateDate) {
-        this.updateDate = updateDate;
-    }
+  public void setUpdateDate(Timestamp updateDate) {
+    this.updateDate = updateDate;
+  }
 
-    public Set<SubjectStatus> getStatuses() {
-        return statuses;
-    }
+  public Set<SubjectStatus> getStatuses() {
+    return statuses;
+  }
 
-    public void setStatuses(Set<SubjectStatus> statuses) {
-        this.statuses = statuses;
-    }
+  public void setStatuses(Set<SubjectStatus> statuses) {
+    this.statuses = statuses;
+  }
 
-    public int getViews() {
-        return views;
-    }
+  public int getViews() {
+    return views;
+  }
 
-    public void setViews(int views) {
-        this.views = views;
-    }
+  public void setViews(int views) {
+    this.views = views;
+  }
 
-    public List<AThread> getThreads() {
-        return threads;
-    }
+  public List<AThread> getThreads() {
+    return threads;
+  }
 
-    public void setThreads(List<AThread> threads) {
-        this.threads = threads;
-    }
+  public void setThreads(List<AThread> threads) {
+    this.threads = threads;
+  }
 }

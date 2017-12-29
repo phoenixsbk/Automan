@@ -42,7 +42,11 @@ public class AuthFilter implements ContainerRequestFilter {
           System.out.println("Token invalid:" + token);
           authService.logout(token);
         }
+      } else {
+        System.out.println("Token empty");
       }
+    } else {
+      System.out.println("Cookie Empty");
     }
 
     requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());

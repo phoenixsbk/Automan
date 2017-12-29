@@ -26,7 +26,7 @@ public class SubjectServiceImpl implements SubjectService {
   }
 
   @Override
-  public List<Subject> listSubjects(SubjectStatuses status, int pageIndex, int pageSize) {
-    return subjectRepository.listSubjectWithStatus(status.toString(), new PageRequest(pageIndex, pageSize));
+  public List<Subject> listSubjects(int pageIndex, int pageSize) {
+    return subjectRepository.listSubjects(new PageRequest(pageIndex, pageSize));
   }
 }
