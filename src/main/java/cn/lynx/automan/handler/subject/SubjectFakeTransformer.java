@@ -10,4 +10,9 @@ public class SubjectFakeTransformer implements Transformer<Subject> {
   public void handle(Subject subject) {
     System.out.println("subject transformer");
   }
+
+  @Override
+  public int getOrder() {
+    return HIGHEST_PRECEDENCE + 50;
+  }
 }

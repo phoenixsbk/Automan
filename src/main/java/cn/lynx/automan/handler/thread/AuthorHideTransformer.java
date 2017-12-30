@@ -3,13 +3,12 @@ package cn.lynx.automan.handler.thread;
 import cn.lynx.automan.data.entity.AThread;
 import cn.lynx.automan.data.entity.ThreadStatus;
 import cn.lynx.automan.handler.Transformer;
-import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
 @Component
-public class AuthorHideTransformer implements Transformer<AThread>, Ordered {
+public class AuthorHideTransformer implements Transformer<AThread> {
 
   @Override
   public void handle(AThread thread) {

@@ -1,5 +1,7 @@
 package cn.lynx.automan.handler;
 
-public interface Transformer<T> {
+import org.springframework.core.Ordered;
+
+public interface Transformer<T> extends Ordered {
   void handle(T t);
 }

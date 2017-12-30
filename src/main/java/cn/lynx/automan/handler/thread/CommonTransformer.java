@@ -3,11 +3,10 @@ package cn.lynx.automan.handler.thread;
 import cn.lynx.automan.data.entity.AThread;
 import cn.lynx.automan.data.entity.User;
 import cn.lynx.automan.handler.Transformer;
-import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CommonTransformer implements Transformer<AThread>, Ordered {
+public class CommonTransformer implements Transformer<AThread> {
   @Override
   public void handle(AThread aThread) {
     User user = aThread.getUser();
