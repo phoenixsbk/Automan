@@ -1,6 +1,6 @@
 package cn.lynx.automan.resources;
 
-import cn.lynx.automan.data.entity.SubjectStatuses;
+import cn.lynx.automan.handler.subject.SubjectStatuses;
 import cn.lynx.automan.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;

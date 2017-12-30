@@ -1,12 +1,14 @@
 package cn.lynx.automan.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Table(name = "`AMUser`")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class User extends Model {
 
   @Column(name = "`Username`")

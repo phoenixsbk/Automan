@@ -1,6 +1,7 @@
 package cn.lynx.automan.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "`AMSubject`")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Subject extends Model {
   @Column(name = "`Title`")
   private String title;
@@ -22,8 +24,7 @@ public class Subject extends Model {
   @Column(name = "`Views`")
   private int views;
 
-  @JsonIgnore
-  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private Set<SubjectStatus> statuses;
 
   @JsonIgnore

@@ -1,8 +1,7 @@
 package cn.lynx.automan.service;
 
 import cn.lynx.automan.data.entity.Subject;
-import cn.lynx.automan.data.entity.SubjectStatus;
-import cn.lynx.automan.data.entity.SubjectStatuses;
+import cn.lynx.automan.handler.subject.SubjectStatuses;
 
 import java.util.List;
 

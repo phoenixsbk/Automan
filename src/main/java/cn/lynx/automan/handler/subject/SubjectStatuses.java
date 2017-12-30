@@ -1,4 +1,4 @@
-package cn.lynx.automan.data.entity;
+package cn.lynx.automan.handler.subject;
 
 public enum SubjectStatuses {
   TOP("Top"),
@@ -10,8 +10,12 @@ public enum SubjectStatuses {
     this.status = status;
   }
 
+  public String value() {
+    return this.status;
+  }
+
   @Override
   public String toString() {
     return this.status;
-  }
+}
 }

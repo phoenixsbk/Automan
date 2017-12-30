@@ -1,6 +1,7 @@
 package cn.lynx.automan.data.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "`AMUserState`")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserState extends Model {
   @JsonIgnore
   @OneToOne(mappedBy = "userState")
