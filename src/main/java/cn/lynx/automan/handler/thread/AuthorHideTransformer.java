@@ -14,7 +14,7 @@ public class AuthorHideTransformer implements Transformer<AThread> {
   public void handle(AThread thread) {
     Set<ThreadStatus> statuses = thread.getThreadStatuses();
     if (statuses != null) {
-      if (statuses.stream().anyMatch(s -> s.getStatus().equals(ThreadStatuses.AUTHOR_HIDDEN.value()))) {
+      if (statuses.stream().anyMatch(s -> s.getStatus().equals(ThreadStatuses.AuthorHide.toString()))) {
         thread.setUser(null);
       }
     }

@@ -23,4 +23,8 @@ public class CommonTransformer implements Transformer<AThread> {
   public int getOrder() {
     return HIGHEST_PRECEDENCE + 75;
   }
+
+  public static void main(String[] args) {
+    System.out.println(ThreadStatuses.valueOf("AuthorHide"));
+  }
 }
